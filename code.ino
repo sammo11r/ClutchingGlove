@@ -2,7 +2,6 @@
 #include <Servo.h>
 
 //Declare the variables
-
 //Servo L = left, R = right, T = thumb
 int servoLPin = 3;
 int servoRPin = 5;
@@ -38,22 +37,9 @@ void setup(void) {
 
 }
 
-//Loop
+//Main loop
 void loop(void) {
-  
-  //Get the temperature from the thermistor
-  //temperature = getTemperature();
-  
-  //While the temperature exceeds the threshold,
- // while (temperature >= thresholdTemperature) {
-    
-    //Return to the zero condition
-    //servoL.write(0);
-    //servoR.write(0);
-    //servoT.write(0);
-    
-  //}
-  
+ 
   reading_1 = analogRead(A0); //attached to analog 0
   reading_2 = analogRead(A1); //attached to analog 1
     
@@ -65,8 +51,8 @@ void loop(void) {
   Serial.println(reading);
     
    while (activated) {
-    activated = deActivation();
-  }
+     activated = deActivation();
+   }
   
   //Check if the threshold has been reached or the device is already activated
   if (reading >= thresholdPressure) { 
@@ -83,7 +69,6 @@ void loop(void) {
    delay(10);
   
   }
-
 }
 
 //Variable to keep track of time
@@ -157,5 +142,4 @@ int deActivation (void) {
   checkThree = 0;
   
   return 1; //Else, keep activated
-  
 }
